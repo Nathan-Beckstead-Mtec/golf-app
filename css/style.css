@@ -1,0 +1,10 @@
+@media (min-width: 400px) {
+  :root {
+    font-size: 48px;
+  }
+  * {
+    min-height: 2em;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
