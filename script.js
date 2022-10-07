@@ -1,8 +1,8 @@
 
 var courses = null;
 getCourses();
-
-
+var cache = {};
+courseId = null;
 
 function getCourses(){
 
@@ -50,14 +50,35 @@ function getCourses(){
         courses.forEach(course => {
             HTML += `<option value="${course.id}">${course.name}</option>\n`;
         });
-        console.log("unsanitized input go brrrrrr");
-        document.getElementById("course").innerHTML = HTML;
+        console.error("unsanitized input go brrrrrr");
+        input = document.getElementById("course");
+        input.innerHTML = HTML;
+        input.addEventListener("change",courseChanged);
+
     }
 };
 
+function courseChanged(){
+    input = document.getElementById("course");
+    if (input.value == ""){
+        return;
+    }
+    
+    courseId = input.value;
+    if (cache[courseId] == undefined){
+        //create spinners
+        getCourse(courseId);
+        //delete spinners
+    }
+    writeCourse(cache[courseId]);
+}
 
 
-async function getCourse(hole){
+function writeCourse(courseJson){
+
+}
+
+function getCourse(course){
 
 
 
@@ -71,12 +92,20 @@ async function getCourse(hole){
 
     console.log(options);
 
-    const response = await fetch("https://golf-courses-api.herokuapp.com/courses/" + hole,options);
+    const responsePromise = fetch("https://golf-courses-api.herokuapp.com/courses/" + course,options);
 
-    response.json().then(data => {
-        console.log(data);
+    responsePromise
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      cache[course] = data;
+    })
+    .catch((error) => {
+      console.error(`Could not get Couses: ${error}`);
     });
-
-
-
 };
