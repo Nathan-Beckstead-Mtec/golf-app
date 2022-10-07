@@ -2,7 +2,33 @@
 var courses = null;
 getCourses();
 var cache = {};
-courseId = null;
+var courseId = null;
+var tees;
+
+//[
+//	{
+//		"id": 1,
+//		"name": "pro",
+//		"col": "#443C30"
+//	},
+//	{
+//		"id": 2,
+//		"name": "champion",
+//		"col": "#6e869e"
+//	},
+//	{
+//		"id": 3,
+//		"name": "men",
+//		"col": "#ffffff"
+//	},
+//	{
+//		"id": 4,
+//		"name": "women",
+//		"col": "#ff0000"
+//	}
+//]
+
+
 
 function getCourses(){
 
@@ -69,12 +95,33 @@ function courseChanged(){
         //create spinners
         getCourse(courseId);
         //delete spinners
+    }else{
+        writeCourse(cache[courseId]);
     }
-    writeCourse(cache[courseId]);
 }
 
 
-function writeCourse(courseJson){
+function writeCourse(Json){
+    console.log("writeCourse got this input");
+    console.log(Json);
+    let HTML =
+    `<h1 id="info-name">${Json.name}</h1>
+		<p id="info-address">${Json.addr1}${Json.addr2 == null? "": " " + Json.addr2}, ${Json.city} ${Json.stateOrProvince}</p>
+		<div class="contact">
+		<a id="info-phone" href="tel:${Json.phone}">${Json.phone}</a>
+		<a id="info-website" href="${Json.website}" target="_blank">website</a>
+	</div>`;
+    document.getElementById("info").innerHTML= HTML;
+
+
+    if (Json.holeCount != 18){
+        console.error("expected a golf course with 18 holes");
+    }
+
+    tees = [];
+    Json.holes[0].teeBoxes.forEach(data => {
+        tees.push({id: data.teeTypeId, name: data.teeType, col: data.teeHexColor});
+    });
 
 }
 
@@ -102,8 +149,10 @@ function getCourse(course){
       return response.json();
     })
     .then((data) => {
+        data = data.data;
       console.log(data);
       cache[course] = data;
+      writeCourse(data);
     })
     .catch((error) => {
       console.error(`Could not get Couses: ${error}`);
