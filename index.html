@@ -7,9 +7,12 @@
     <title>Golf app</title>
 </head>
 <body>
-	<select name="course" id="course">
-		<option value="" selected disabled>Select Golf Course</option>
-	</select>
+	
+	<div class="extendo-select">
+		<select name="course" id="course">
+			<option value="" selected disabled>Select Golf Course</option>
+		</select>
+	</div>
 
 	<div class="info" id="info">
 		<h1 id="info-name">Name of golf Course</h1>
@@ -31,12 +34,12 @@
 		</div>
 		<div>
 			<p>Tee-box</p>
-			<select name="cars" id="cars">
-				<option value="volvo">Volvo</option>
-				<option value="saab">Saab</option>
-				<option value="mercedes">Mercedes</option>
-				<option value="audi">Audi</option>
-			</select>
+			<input type="radio" name="Tee-box" id="a">
+			<label for="a"><span style="color:red">&bull;</span>&lt;-- look thats red</label>
+			<input type="radio" name="Tee-box">
+			<input type="radio" name="Tee-box">
+			<input type="radio" name="Tee-box">
+			
 		</div>
 
 		<input placeholder="player1">
@@ -45,6 +48,7 @@
 		<input placeholder="player4">
 
 		<button>Start Round!</button>
+		<a target="_blank" href="./game.html">test game.html</a>
 		
 	</div>
 </body>
