@@ -48,6 +48,7 @@ table input {
   text-align: center;
   border-color: #fff;
   transition: border-color 0.2s;
+  font-size: 1em;
 }
 
 table input:hover {

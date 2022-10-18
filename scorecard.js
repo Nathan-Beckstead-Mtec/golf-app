@@ -6,7 +6,6 @@ class scorecard{
     #data;
     //this.card
     // strokes;
-
     
     constructor(id, api_course, tee, players, players_hcp = null){
         //id         - id selector for the parent element of the table.
@@ -14,7 +13,7 @@ class scorecard{
         //tee        - the index into the above object for the selected tee
         //players    - an array of strings of the players
 
-
+        this.thus = this;
         this.card = document.getElementById(id);
         this.card_id = id;
         if (this.card == undefined){
@@ -45,108 +44,131 @@ class scorecard{
     }
 
     generate(){
-        let html = `<table><thead>
-        <tr id="t-hole">
-        <th>Hole</th>
-        <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>Out</th>
-            <th>10</th>
-            <th>11</th>
-            <th>12</th>
-            <th>13</th>
-            <th>14</th>
-            <th>15</th>
-            <th>16</th>
-            <th>17</th>
-            <th>18</th>
-            <th>In</th>
-            <th>Total</th>
-            <th>HCP</th>
-            <th>Net</th>
-        </tr>`;
-        let html_yard = `<tr id="t-yard">	<th>Yardage</th>`;
-        let html_handicap = `<tr id="t-handicap">	<th>Handicap</th>`;
-        let html_par = `<tr id="t-par">	<th>Par</th>`;
 
-		let par_total = 0;
-		let par_half = 0;
-		let yard_total = 0;
-		let yard_half = 0;
-        
-        
-		this.#data.forEach((hole, index) => {
-			html_yard += `<th>` + hole.yards + `</th>`;
-			html_handicap += `<th>` + hole.hcp + `</th>`;
-			html_par += `<th>` + hole.par + `</th>`;
-			
-			par_total  += hole.par;
-			par_half   += hole.par;
-			yard_total += hole.yards;
-			yard_half  += hole.yards;
+        let html;
+        if (true){ //indentation for thead generation
+            html = `<thead>
+            <tr id="t-hole">
+            <th>Hole</th>
+            <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>Out</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+                <th>16</th>
+                <th>17</th>
+                <th>18</th>
+                <th>In</th>
+                <th>Total</th>
+                <th>HCP</th>
+                <th>Net</th>
+            </tr>`;
+            let html_yard = `<tr id="t-yard">	<th>Yardage</th>`;
+            let html_handicap = `<tr id="t-handicap">	<th>Handicap</th>`;
+            let html_par = `<tr id="t-par">	<th>Par</th>`;
 
-			if (index == 8){
-                html_yard += `<th>` + yard_half + `</th>`;
-				html_handicap += `<th class="t-null"></th>`;
-				html_par += `<th>` + par_half + `</th>`;
-				par_half = 0;
-				yard_half = 0;
-			}
-		});
-        
-		html_yard += `<th>` + yard_half + `</th>`;
-		html_handicap += `<th class="t-null"></th>`;
-		html_par += `<th>` + par_half + `</th>`;
-
-
-		html_yard += `<th>` + yard_total + `</th>`;
-		html_handicap += `<th class="t-null"></th>`;
-		html_par += `<th>` + par_total + `</th>`;
-		html_yard     += `<th class="t-null"></th><th class="t-null"></th></tr>`;
-		html_handicap += `<th class="t-null"></th><th class="t-null"></th></tr>`;
-		html_par      += `<th class="t-null"></th><th class="t-null"></th></tr>`;
-
-		html += html_yard + html_handicap + html_par;
-		html += `</thead><tbody>`;
-
-        let temphtml;
-		this.players.forEach((player, index) => {
-            temphtml = `<tr id="table_${index}"><td>${player}</td>`;
-                // for (let i = 0; i < 23; i++){
-                //     //magic number 23: 23 = 9 holes in + "in" + 9 holes out + "out" + the 3 total columns
-                //     let hole = i - (i >= 9? 1 : 0);
-                //     let cellid
-                //     if (i == 9){
-                //         cellid = this.id + "_" + index.toString() + "_"
-                //     }else{
-                //         cellid = this.id + "_" + index.toString() + "_" + hole.toString();
-                //     }
-
-
-                //     temphtml += `<td id="${cellid}"></td>`;
-                // }
-
+            let par_total = 0;
+            let par_half = 0;
+            let yard_total = 0;
+            let yard_half = 0;
+            
+            
+            this.#data.forEach((hole, index) => {
+                html_yard += `<th>` + hole.yards + `</th>`;
+                html_handicap += `<th>` + hole.hcp + `</th>`;
+                html_par += `<th>` + hole.par + `</th>`;
                 
-                //magic number 23: 23 = 9 holes in + "in" + 9 holes out + "out" + the 3 total columns
-                temphtml += `<td></td>`.repeat(23) ;
-                
-            temphtml += `</tr>`; 
-            html += temphtml;
-		});
-        
-        html += `</tbody></table>`;
+                par_total  += hole.par;
+                par_half   += hole.par;
+                yard_total += hole.yards;
+                yard_half  += hole.yards;
 
-        console.log(html);
-		this.card.innerHTML = html;
-        this.renderHCP();
+                if (index == 8){
+                    html_yard += `<th>` + yard_half + `</th>`;
+                    html_handicap += `<th class="t-null"></th>`;
+                    html_par += `<th>` + par_half + `</th>`;
+                    par_half = 0;
+                    yard_half = 0;
+                }
+            });
+            
+            html_yard += `<th>` + yard_half + `</th>`;
+            html_handicap += `<th class="t-null"></th>`;
+            html_par += `<th>` + par_half + `</th>`;
+
+
+            html_yard += `<th>` + yard_total + `</th>`;
+            html_handicap += `<th class="t-null"></th>`;
+            html_par += `<th>` + par_total + `</th>`;
+            html_yard     += `<th class="t-null"></th><th class="t-null"></th></tr>`;
+            html_handicap += `<th class="t-null"></th><th class="t-null"></th></tr>`;
+            html_par      += `<th class="t-null"></th><th class="t-null"></th></tr>`;
+
+            html += html_yard + html_handicap + html_par;
+            html += `</thead>`;
+        }
+        let table = document.createElement("table");
+        table.innerHTML = html;
+        let tbody = document.createElement("tbody");
+
+
+
+        this.players.forEach((player, index) => {
+            let tr = document.createElement("tr");
+            tr.innerHTML = `<td>${player}</td>`;
+
+
+                for (let i = 1; i <= 23; i++){
+                    //magic number 23: 23 = 9 holes in + "in" + 9 holes out + "out" + the 3 total columns
+                    let hole = i - (i >= 10? 1 : 0);
+                    let td = document.createElement("td");
+                    if (i == 10 || i >= 20){
+                        //out in total hcp net
+                    }else{
+                        let put = document.createElement("input");
+                        // <input type="tel" oninput="test_scorecard.setstroke(3,1,this.value)" style="font-size:1em;"></input>
+                        // <input type="tel" maxlength="2"></input>
+                        put.setAttribute("type","tel");
+                        put.setAttribute("maxlength","2");
+                        put.setAttribute("hole",hole);
+                        put.setAttribute("player_index",index);
+
+                        put.addEventListener("input",(event)=>{this.input_handler(event)},{passive: true});
+
+                        td.appendChild(put);
+                    }
+
+
+                    tr.appendChild(td);
+                }
+
+            tbody.appendChild(tr);
+		});
+        table.appendChild(tbody);
+        this.card.appendChild(table);
+
     }
+
+    input_handler(event){
+        let input = event.target;
+        let hole = Number.parseInt(input.getAttribute("hole"));
+        let player_index = Number.parseInt(input.getAttribute("player_index"));
+
+        this.setstroke(hole,player_index,input.value);
+    }
+
+    
     renderHCP(){
         this.players_hcp.forEach((hcp, index) => {
             this.setcellXY(22,index + 4,hcp,false);
@@ -176,8 +198,8 @@ class scorecard{
             out = out.children[0];
             //    thead
         }
-        console.log("(" + x + ","+ y + ")");
-        console.log(out);
+        // console.log("(" + x + ","+ y + ")");
+        // console.log(out);
         out = out.children[y].children[x];
         //    tbody     tr          th/td
         return out;
@@ -258,7 +280,7 @@ class scorecard{
         let total = sum(Array.from(this.strokes[playerIndex]));
         let net   = total - this.players_hcp[playerIndex];
 
-        this.setcell(hole,playerIndex,value);
+        // this.setcell(hole,playerIndex,value);
         this.setcellXY(10,playerIndex+4,tout);
         this.setcellXY(20,playerIndex+4,tin);
         this.setcellXY(21,playerIndex+4,total);
