@@ -10,9 +10,12 @@ function resume_load(){
 	let players = ["Luigi","Bob Ross", "Joe Ligma"];
 	test_scorecard = new scorecard("card",test_data, 0, players);
 	test_scorecard.generate();
-
+	window.setTimeout(wait_a_bit,200);
 }
 
+function wait_a_bit(){
+	test_scorecard.getcell(2,1).innerHTML = `<input type="tel" oninput="test_scorecard.setstroke(3,1,this.value)" style="font-size:1em;">`;
+}
 
 
 function save() {

@@ -41,9 +41,35 @@ select{
 }
 
 th, td{
-    padding: 0 15px;
+    padding: 0;
+    // padding: 0 15px;
     border: 1px dashed red;
 }
 table{
     border: 2px solid black;
+}
+
+table input{
+    padding:3px;
+    border:none;
+    outline:none;
+    box-sizing: border-box;
+    min-width: 2ch;
+    max-width: 4ch;
+    text-align: center;
+    border-color: #fff;
+    transition: border-color 0.2s;
+    //ᚹ &#5817;
+    //⚐ &#9872;
+
+    // ^ᴥ^
+}
+
+table input:hover{
+    border: 3px solid #bbb;
+    padding: 0px;
+}
+table input:focus{
+    border: 3px solid #666;
+    padding: 0px;
 }
