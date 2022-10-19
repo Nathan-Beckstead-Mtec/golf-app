@@ -168,8 +168,41 @@ class scorecard{
             tbody.appendChild(tr);
 		});
         table.appendChild(tbody);
-        this.card.appendChild(table);
 
+        if (true){ //do col group 
+            let colgroup = document.createElement("colgroup");
+            let element;
+
+            element = document.createElement("col");
+            element.setAttribute("span","1");
+            element.setAttribute("class","sticky");
+            colgroup.appendChild(element);
+
+            element = document.createElement("col");
+            element.setAttribute("span","9");
+            element.setAttribute("class","normal");
+            colgroup.appendChild(element);
+
+            element = document.createElement("col");
+            element.setAttribute("span","1");
+            element.setAttribute("class","sticky");
+            colgroup.appendChild(element);
+
+            element = document.createElement("col");
+            element.setAttribute("span","9");
+            element.setAttribute("class","normal");
+            colgroup.appendChild(element);
+
+            element = document.createElement("col");
+            element.setAttribute("span","4");
+            element.setAttribute("class","sticky");
+            colgroup.appendChild(element);
+
+            table.appendChild(colgroup);
+        }
+
+
+        this.card.appendChild(table);
     }
 
     input_handler(event){
