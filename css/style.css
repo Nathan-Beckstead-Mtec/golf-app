@@ -61,4 +61,18 @@ table input:focus {
   padding: 0px;
 }
 
+.t-null {
+  background-color: #666;
+}
+
+/*
+tr{
+    display: block;
+    float: left;
+}
+th, td{
+    display: block;
+}
+*/
+
 /*# sourceMappingURL=style.css.map */

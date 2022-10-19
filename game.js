@@ -14,7 +14,7 @@ function resume_load(){
 }
 
 function wait_a_bit(){
-	test_scorecard.getcell(2,1).innerHTML = `<input type="tel" oninput="test_scorecard.setstroke(3,1,this.value)" style="font-size:1em;">`;
+	// test_scorecard.getcell(2,1).innerHTML = `<input type="tel" oninput="test_scorecard.setstroke(3,1,this.value)" style="font-size:1em;">`;
 }
 
 

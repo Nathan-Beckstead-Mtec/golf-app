@@ -34,7 +34,19 @@ class scorecard{
         }
         this.#data = data;
 
-        this.strokes = Array(this.playerCount).fill(Array(18).fill(0));
+        this.strokes = Array(this.playerCount);
+        //custom fill because linked arrays for rows are bad;
+        for (let i = 0; i < this.strokes.length; i++){
+            this.strokes[i] = new Array(18).fill(0);
+        }
+        console.table(this.strokes);
+
+        /*
+        anti-regression unit test
+        let unit_test = new scorecard("na","",0,["bob","luigi"],[0,0]);
+        unit_test.setstroke(0,0,4);
+        console.assert(unit_test.strokes[1][0] == 0);
+        */
 
         if (players_hcp == null){
             this.players_hcp = Array(this.playerCount).fill(0);
@@ -273,12 +285,28 @@ class scorecard{
 
     setstroke(hole,playerIndex,value){
         value = Number.parseInt(value);
-        this.strokes[playerIndex][hole] = value;
-        
-        let tout  = sum(Array.from(this.strokes[playerIndex]).splice(0,9));
-        let tin   = sum(Array.from(this.strokes[playerIndex]).splice(9));
-        let total = sum(Array.from(this.strokes[playerIndex]));
+        if (isNaN(value)){
+            value = 0;
+        }
+
+
+        console.debug("(" + hole + "," + playerIndex + ")");
+        this.strokes[playerIndex][hole - 1] = value;
+
+        console.group();
+        let sum_this_list;
+
+        sum_this_list = Array.from(this.strokes[playerIndex]).splice(0,9);
+        let tout  = sum(sum_this_list);
+
+        sum_this_list = Array.from(this.strokes[playerIndex]).splice(9);
+        let tin   = sum(sum_this_list);
+
+        sum_this_list = Array.from(this.strokes[playerIndex]);
+        let total = sum(sum_this_list);
+
         let net   = total - this.players_hcp[playerIndex];
+        console.groupEnd();
 
         // this.setcell(hole,playerIndex,value);
         this.setcellXY(10,playerIndex+4,tout);
@@ -290,12 +318,18 @@ class scorecard{
 
 
         function sum(arr){
-            return arr.reduce(
+            console.groupCollapsed();
+            console.debug("Summing: ");
+            console.table(arr);
+            let out = arr.reduce(
                 (prev, curr) => {
                     return prev + curr;
                 },
                 0
             );
+            console.debug("got: " + out);
+            console.groupEnd();
+            return out;
         }
     }
     
