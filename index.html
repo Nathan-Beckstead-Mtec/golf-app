@@ -2,26 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<link rel="stylesheet" href="css/style.css">
-	<script src="./script.js"></script>
+	<link rel="stylesheet" href="css/game.css">
+	<script defer src="./script.js"></script>
     <title>Golf app</title>
 </head>
 <body>
+	
+
+	<div class="centering-div">
+		<select name="course" id="course">
+			<option value="" selected disabled>Select Golf Course</option>
+		</select>
+	</div>
+
+
+<!-- 
+
 	
 	<div class="extendo-select">
 		<select name="course" id="course">
 			<option value="" selected disabled>Select Golf Course</option>
 		</select>
 	</div>
+	
+-->
+	<table>
+		<tbody>
+			<tr>
+				<td>Name:</td>
+				<td id="info-name"></td>
+			</tr>
+			<tr>
+				<td>address:</td>
+				<td id="info-address"></td>
+			</tr>
+			<tr>
+				<td>phone:</td>
+				<td ><a id="info-phone" href=""></a></td>
+			</tr>
+			<tr>
+				<td>website:</td>
+				<td><a id="info-website" href="" target="_blank"></a></td>
+			</tr>
+		</tbody>
+	</table>
 
-	<div class="info" id="info">
-		<h1 id="info-name">Name of golf Course</h1>
-		<p id="info-address">599 N Frontage Rd Lehi Ut</p>
-		<div class="contact">
-			<a id="info-phone" href="tel:248-434-5508">248-434-5508</a>
-			<a id="info-website" href="" target="_blank">website</a>
-		</div>
-	</div>
 	<div class="options">
 		<div>
 			<p>holes?</p>

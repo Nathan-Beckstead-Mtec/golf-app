@@ -104,14 +104,15 @@ function courseChanged(){
 function writeCourse(Json){
     console.log("writeCourse got this input");
     console.log(Json);
-    let HTML =
-    `<h1 id="info-name">${Json.name}</h1>
-		<p id="info-address">${Json.addr1}${Json.addr2 == null? "": " " + Json.addr2}, ${Json.city} ${Json.stateOrProvince}</p>
-		<div class="contact">
-		<a id="info-phone" href="tel:${Json.phone}">${Json.phone}</a>
-		<a id="info-website" href="${Json.website}" target="_blank">website</a>
-	</div>`;
-    document.getElementById("info").innerHTML= HTML;
+
+
+	document.getElementById("info-name").textContent = Json.name;
+	document.getElementById("info-address").textContent = Json.addr1 + ((Json.addr2 == null)? "": " ") + Json.addr2 + ", " + Json.city + " " + Json.stateOrProvince;
+	document.getElementById("info-phone").textContent   = Json.phone;
+	document.getElementById("info-phone").setAttribute("href", "tel:" + Json.phone);
+	document.getElementById("info-website").textContent = "website";
+	document.getElementById("info-website").setAttribute("href", Json.website);
+
 
 
     if (Json.holeCount != 18){
