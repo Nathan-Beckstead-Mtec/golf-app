@@ -1,0 +1,274 @@
+// $pallate_white  : #eee1d9;
+$pallate_white  : #c5ccb8;
+$pallate_font   : #433455;
+
+$pallate_null   : #6e696288;
+$pallate_row1   : #c38890;
+$pallate_row2   : #be955c;
+$pallate_row3   : #6eaa78;
+$pallate_row4   : #7ca1c0;
+// $pallate_not_editable: #eeeeff88;
+$pallate_not_editable : #b09a8244;
+$pallate_font_trans   : #433455dd;
+
+$width_c1  : 5rem;
+$width_cell: 2rem;
+$width_peek: 0px;
+
+
+
+table{
+    background-color: $pallate_font;
+    border-collapse: collapse;
+    thead{
+        tr:nth-child(1){
+            th{
+                background-color: $pallate_row1;
+            }
+            th:nth-child(11), th:nth-last-child(5) ~ th{
+                font-size: .8em;
+
+            }
+            th:nth-last-child(3){
+                //gotta add the important because the selector above is more specific
+                font-size: .7em !important;
+
+            }
+        }
+        tr:nth-child(2) {
+            th{
+                background-color: $pallate_row2;
+            }
+            th:nth-child(n+2){
+                //sets font size for yards to be smaller
+                font-size: .5em;
+            }
+        }
+        tr:nth-child(3) th{
+            background-color: $pallate_row3;
+        }
+        tr:nth-child(4) th{
+            background-color: $pallate_row4;
+        }
+        .t-null{
+            box-shadow: inset 0 0 0 100px $pallate_null;
+        }
+        tr{
+            th:nth-child(1), th:nth-child(11), th:nth-last-child(5) ~ th{
+                box-shadow: 0 0 0 1px $pallate_font;
+
+            }
+        }
+    }
+    tbody{
+        tr{
+            td:nth-child(1), td:nth-child(11), td:nth-last-child(5) ~ td{
+                box-shadow: inset 0 0 0 100px $pallate_not_editable, 0 0 0 1px $pallate_font;
+
+            }
+            td{
+                //set score rows background
+                background-color: $pallate_white;
+            }
+        }
+    }
+
+    thead tr th, tbody tr td{
+        &{
+            min-width: $width_cell;
+            max-width: $width_cell;
+            width: $width_cell;
+            // height:1.6rem;
+            text-align: center;
+            border: 1px solid $pallate_font;
+            outline: blue;
+        }
+        &:nth-child(1){
+            //first column
+            position: sticky;
+            left:0;
+            min-width: $width_c1;
+            max-width: $width_c1;
+            width: $width_c1;
+
+            padding: 0 5px;
+            box-sizing: border-box;
+
+            font-size: .8em;
+            text-align: right;
+
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+            white-space: nowrap;
+            z-index: 1;
+        }
+        &:nth-child(11){
+            //out
+            z-index: 1;
+            position: sticky;
+            left: $width_c1;
+            right: calc($width_cell + $width_peek + $width_peek);
+        }
+        &:nth-child(21){
+            //in
+            z-index: 0;
+            position: sticky;
+            left: calc($width_c1 + $width_cell);
+            right: calc($width_cell + $width_peek + $width_peek);
+        }
+        &:nth-last-child(3){
+            //total and hcp
+            position: sticky;
+            right: calc($width_peek + $width_peek);
+        }
+        &:nth-last-child(2){
+            //total and hcp
+            position: sticky;
+            right: $width_peek;
+        }
+        &:nth-last-child(1){
+            //net
+            position: sticky;
+            right:0px;
+        }
+    }
+}
+th, td{
+    padding: 0;
+    border: 1px solid $pallate_font;
+    
+}
+
+
+body{
+    background-image: url("../images/pexels-edward-goeters-5802951.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.centering-div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    margin-top: 1rem;
+}
+
+.content{
+    border: 2px solid black;
+    box-shadow: 0 0 1rem 0.5rem $pallate_font;
+    flex-shrink: 1;
+    
+    border: 2px solid black;
+    box-shadow: 0 0 1rem 0.5rem $pallate_font;
+}
+
+#card{
+    overflow-x: scroll;
+    padding-bottom: 10px;
+    position: relative;
+    
+    max-width: 100%;
+    // flex-shrink: 1;
+    
+    box-sizing: border-box;
+    
+    background-color: $pallate_font;
+}
+
+
+
+@media  (min-width: 400px){
+    :root{
+        font-size: 24px;
+        
+    }
+}
+
+select.course{
+    width: 100vw;
+    height: 5vh;
+    flex-grow: 1;
+}
+
+.extendo-select{
+    display: flex;
+    justify-content: center;
+    
+    width: 100%;
+}
+
+// input{
+//     display: block;
+//     height: 20vh;
+//     width: 20vw;
+// }
+
+input[type="radio"], input[type="checkbox"]{
+    height: 2.5em;
+    width: 2.5em;
+
+}
+
+select{
+    width:100%;
+    height:1.5em;
+    font-size: 1em;
+    // background-color: ;
+
+    option{
+        font-size: 0.75em;
+    }
+}
+
+
+
+table input{
+    padding:3px;
+    border:none;
+    outline:none;
+    box-sizing: border-box;
+    // min-width: 2ch;
+    // max-width: 3ch;
+    width: 100%;
+    height:100%;
+    text-align: center;
+    border-color: $pallate_white;
+    background-color: transparent;
+    transition: border-color 0.2s;
+    font-size: 1em;
+    //ᚹ &#5817;
+    //⚐ &#9872;
+
+    // ^ᴥ^
+}
+
+table input:hover{
+    border: 3px solid #bbb;
+    padding: 0px;
+}
+table input:focus{
+    border: 3px solid #666;
+    padding: 0px;
+}
+
+
+
+
+
+
+
+
+
+//crazy trick
+/*
+tr{
+    display: block;
+    float: left;
+}
+th, td{
+    display: block;
+}
+*/
