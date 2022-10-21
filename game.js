@@ -7,7 +7,7 @@ load();
 function resume_load(){
 
 	console.log("loaded ... running");
-	let players = ["Luigi","Bob Ross", "Joe Ligma"];
+	let players = ["Luigi","Bob Ross", "Joenathan Ligma"];
 	test_scorecard = new scorecard("card",test_data, 0, players);
 	test_scorecard.generate();
 	window.setTimeout(wait_a_bit,200);
