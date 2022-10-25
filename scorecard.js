@@ -202,7 +202,7 @@ class scorecard{
         }
 
 
-        this.card.appendChild(table);
+        this.card.replaceChildren(table);
     }
 
     input_handler(event){

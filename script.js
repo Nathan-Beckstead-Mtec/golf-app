@@ -192,6 +192,7 @@ function getCourseFromAPI(course, callback){
         data = data.data;
         console.debug(data);
         cache[course] = data;
+        // save_cache();
         // writeCourse(data);
         callback(data);
     })
@@ -217,5 +218,5 @@ function save_cache(){
     sessionStorage.setItem("cache", JSON.stringify(cache));
 }
 function load_cache(){
-    cache = sessionStorage.getItem("cache") ?? {};
+    cache = JSON.parse(sessionStorage.getItem("cache")) ?? {};
 }
