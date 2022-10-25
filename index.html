@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css">
-	<script defer src="./script.js"></script>
+	<script defer src="./script.js" onload="getCourses();"></script>
     <title>Golf app</title>
 </head>
 <body>
 	<form class="options" action="/game.html" method="get">
 		<div class="centering-div">
-			<select name="course" id="course" required>
+			<select name="course" id="course" onchange="courseChanged()" required>
 				<option value="" selected disabled>Select Golf Course</option>
 			</select>
 		</div>

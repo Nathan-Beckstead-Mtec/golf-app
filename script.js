@@ -3,7 +3,7 @@ var courses = null;
 
 var cache = {};
 load_cache();
-getCourses();
+// getCourses();
 var courseId = null;
 var tees;
 
@@ -81,7 +81,6 @@ function getCourses(){
         console.error("unsanitized input go brrrrrr");
         input = document.getElementById("course");
         input.innerHTML = HTML;
-        input.addEventListener("change",courseChanged);
 
     }
 };
@@ -93,13 +92,7 @@ function courseChanged(){
     }
     
     courseId = input.value;
-    if (cache[courseId] == undefined){
-        //create spinners
-        getCourseFromAPI(courseId);
-        //delete spinners
-    }else{
-        writeCourse(cache[courseId]);
-    }
+    getCourse(courseId, writeCourse);
 }
 
 
@@ -172,7 +165,7 @@ function writeCourse(Json){
     
 }
 
-function getCourseFromAPI(course){
+function getCourseFromAPI(course, callback){
 
 
 
@@ -184,7 +177,7 @@ function getCourseFromAPI(course){
         json: true
     };
 
-    console.log(options);
+    console.debug(options);
 
     const responsePromise = fetch("https://golf-courses-api.herokuapp.com/courses/" + course,options);
 
@@ -197,9 +190,10 @@ function getCourseFromAPI(course){
     })
     .then((data) => {
         data = data.data;
-      console.log(data);
-      cache[course] = data;
-      writeCourse(data);
+        console.debug(data);
+        cache[course] = data;
+        // writeCourse(data);
+        callback(data);
     })
     .catch((error) => {
       console.error(`Could not get Couses: ${error}`);
@@ -207,6 +201,16 @@ function getCourseFromAPI(course){
 };
 
 
+
+function getCourse(courseId, callback){
+    if (cache[courseId] == undefined){
+        //create spinners
+        return getCourseFromAPI(courseId,callback);
+        //delete spinners
+    }else{
+        callback(cache[courseId]);
+    }
+}
 
 
 function save_cache(){
