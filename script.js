@@ -93,7 +93,7 @@ function courseChanged(){
     courseId = input.value;
     if (cache[courseId] == undefined){
         //create spinners
-        getCourse(courseId);
+        getCourseFromAPI(courseId);
         //delete spinners
     }else{
         writeCourse(cache[courseId]);
@@ -120,13 +120,57 @@ function writeCourse(Json){
     }
 
     tees = [];
-    Json.holes[0].teeBoxes.forEach(data => {
-        tees.push({id: data.teeTypeId, name: data.teeType, col: data.teeHexColor});
+    Json.holes[0].teeBoxes.forEach((data, index) => {
+        tees.push({id: data.teeTypeId, name: data.teeType, col: data.teeHexColor, index: index});
     });
 
+
+    if(true){ //tee-box html genetation from above tee variable
+        let tee_html = document.createElement("div");
+        // tee_html.outerHTML = `<div class="tee_div" id="tee_div"><p>Tee-box:</p></div>`;
+        tee_html.setAttribute("class","tee_div");
+        tee_html.id = "tee_div";
+
+        let tee_caption = document.createElement("h6");
+        tee_caption.textContent = "Tee-box:";
+        tee_html.appendChild(tee_caption);
+        let css = "";
+        tees.forEach((elem) => {
+            let input_tag = document.createElement("input");
+            input_tag.setAttribute("type","radio");
+            input_tag.setAttribute("name","tee");
+            input_tag.setAttribute("value", elem.index);
+            // input_tag.outerHTML = `<input type="radio" name="Tee-box">`;
+            let id = "tee_" + elem.id
+            input_tag.id = id;
+
+            let label_tag = document.createElement("label");
+            // label_tag.outerHTML = `<label for="${id}" color="${elelem.col}">${elem.name}</label>`;
+            label_tag.setAttribute("for",id);
+            label_tag.setAttribute("color",elem.col);
+            label_tag.textContent = elem.name;
+
+            css += 
+`label[for="${id}"]::before {
+    background-color: ${elem.col ?? "transparent"};
+}\n`;
+
+            tee_html.appendChild(input_tag);
+            tee_html.appendChild(label_tag);
+        });
+        let css_html = document.createElement("style");
+        css_html.textContent = css;
+        tee_html.appendChild(css_html);
+
+        tee_html.children[1].setAttribute["checked","checked"];
+        document.getElementById("tee_div").replaceWith(tee_html);
+    }
+
+
+    
 }
 
-function getCourse(course){
+function getCourseFromAPI(course){
 
 
 

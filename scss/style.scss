@@ -15,76 +15,175 @@ $width_c1  : 5rem;
 $width_cell: 2rem;
 $width_peek: 0px;
 
+$checkbox_size: 1em;
+$card-gap: 20px;
 
-
-
+:root{
+    font-size: 24px;
+}
+@media  (max-device-width: 400px){
+    :root{
+        font-size: 48px;
+    }
+    .tee_div{
+        label::before{
+            transition: box-shadow none;
+        }
+    }
+}
 
 body{
+    background-color: #659cd2; //sky color for iphone notch
     background-image: url("../images/pexels-edward-goeters-5802951.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    overflow-y: hidden;
+    // overflow-y: hidden;
+    // needed to not scroll background
 }
 
 .centering-div{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-
-    margin-top: 1rem;
-}
-
-.content{
-    border: 2px solid black;
-    box-shadow: 0 0 1rem 0.5rem $pallate_font;
-    flex-shrink: 1;
-    
-    border: 2px solid black;
-    box-shadow: 0 0 1rem 0.5rem $pallate_font;
-}
-
-
-
-@media  (min-width: 400px){
-    :root{
-        font-size: 24px;
-        
-    }
-}
-
-select.course{
-    width: 100vw;
-    height: 5vh;
-    flex-grow: 1;
-}
-
-.extendo-select{
-    display: flex;
-    justify-content: center;
-    
-    width: 100%;
-}
-
-// input{
-//     display: block;
-//     height: 20vh;
-//     width: 20vw;
-// }
-
-input[type="radio"], input[type="checkbox"]{
-    height: 2.5em;
-    width: 2.5em;
-
+    flex-wrap: nowrap;
+    padding:1em;
+    background-color: $pallate_white;
+    margin-bottom: $card-gap;
+    // margin-top: 1rem;
 }
 
 select{
-    width:100%;
-    height:1.5em;
+    width: 100%;
+    height: 5vh;
+    flex-grow: 1;
     font-size: 1em;
     // background-color: ;
-
+    
     option{
         font-size: 0.75em;
+    }
+}
+
+input[type="submit"]{
+    width: 100%;
+    font-size: 1em;
+    // border-radius: unset;
+}
+
+.table-div{
+    padding: 1em;
+    background-color: $pallate_white;
+    margin-bottom: $card-gap;
+    
+    table{
+        background-color: $pallate_white;
+        width: 100%;
+
+        
+        border-collapse: collapse;
+        td{
+            border: 2px solid $pallate_font;
+            padding:4px 16px;
+        }
+        td:first-child{
+            text-align: right;
+            width: 5em;
+        }
+    }
+}
+
+
+
+.tee_div{
+    // input[type="radio"], input[type="checkbox"]{
+    //     height: 2.5em;
+    //     width: 2.5em;
+    // }
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap:0.5em;
+
+    background-color: $pallate_white;
+    margin-bottom: $card-gap;
+    padding:1em;
+
+
+    h6{
+        margin:0;
+        font-size: 1em;
+    }
+    p{
+        margin:0;
+    }
+
+    input{
+        visibility: hidden;
+        margin:0;
+        border: 0;
+        display: none;
+    }
+    input:checked + label::before{
+        content: "";
+        display: inline-block;
+        // border: 2px solid #fff;
+
+        box-shadow: inset 0 0 0 2px $pallate_font, inset 0 0 0 0px #fff, 0 0 5px 3px $pallate_font;
+    }
+    label:hover:before{
+        content: "";
+        display: inline-block;
+        // border: 2px solid #fff;
+        box-shadow: inset 0 0 0 2px $pallate_font, inset 0 0 0 4px #fff, 0 0 5px 0 $pallate_font;
+    }
+    label::before{
+        content: "";
+        width: $checkbox_size;
+        height:  $checkbox_size;
+        border-radius:  $checkbox_size;
+        top:.5ex;
+        right:0.5em;
+        position: relative;
+        background-color: white;
+        display: inline-block;
+        // border: 2px solid #fff;
+        transition: box-shadow 0.2s;
+        box-shadow: inset 0 0 0 2px $pallate_font, inset 0 0 0 4px #fff;
+    }
+
+    label{
+        position:relative;
+        left:1em;
+    }
+}
+
+.smol{
+    font-size: .5em;
+    font-weight:400;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 4.5em;
+    margin-bottom: $card-gap;
+    // grid-template-rows: 1em auto auto auto auto;
+    gap: 4px 0.5em;
+
+    background-color: $pallate_white;
+    padding:1em;
+
+    input{
+        font-size: 1em;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    h6{
+        margin:0;
+        font-size: 1em;
+        line-height: 0.5em;
     }
 }

@@ -2,79 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<link rel="stylesheet" href="css/game.css">
+	<link rel="stylesheet" href="css/style.css">
 	<script defer src="./script.js"></script>
     <title>Golf app</title>
 </head>
 <body>
-	
-
-	<div class="centering-div">
-		<select name="course" id="course">
-			<option value="" selected disabled>Select Golf Course</option>
-		</select>
-	</div>
-
-
-<!-- 
-
-	
-	<div class="extendo-select">
-		<select name="course" id="course">
-			<option value="" selected disabled>Select Golf Course</option>
-		</select>
-	</div>
-	
--->
-	<table>
-		<tbody>
-			<tr>
-				<td>Name:</td>
-				<td id="info-name"></td>
-			</tr>
-			<tr>
-				<td>address:</td>
-				<td id="info-address"></td>
-			</tr>
-			<tr>
-				<td>phone:</td>
-				<td ><a id="info-phone" href=""></a></td>
-			</tr>
-			<tr>
-				<td>website:</td>
-				<td><a id="info-website" href="" target="_blank"></a></td>
-			</tr>
-		</tbody>
-	</table>
-
-	<div class="options">
-		<div>
-			<p>holes?</p>
-			<input type="radio" name="holes" id="9a">
-			<label for="9a">front 9</label>
-			<input type="radio" name="holes" id="9b">
-			<label for="9b">back 9</label>
-			<input type="radio" name="holes" id="18" checked="checked">
-			<label for="18">all 18</label>
-		</div>
-		<div>
-			<p>Tee-box</p>
-			<input type="radio" name="Tee-box" id="a">
-			<label for="a"><span style="color:red">&bull;</span>&lt;-- look thats red</label>
-			<input type="radio" name="Tee-box">
-			<input type="radio" name="Tee-box">
-			<input type="radio" name="Tee-box">
-			
+	<form class="options" action="/game.html" method="get">
+		<div class="centering-div">
+			<select name="course" id="course" required>
+				<option value="" selected disabled>Select Golf Course</option>
+			</select>
 		</div>
 
-		<input placeholder="player1">
-		<input placeholder="player2">
-		<input placeholder="player3">
-		<input placeholder="player4">
+		<div class="table-div">
+			<table>
+				<tbody>
+					<tr>
+						<td>Name:</td>
+						<td id="info-name"></td>
+					</tr>
+					<tr>
+						<td>Address:</td>
+						<td id="info-address"></td>
+					</tr>
+					<tr>
+						<td>Phone:</td>
+						<td ><a id="info-phone" href=""></a></td>
+					</tr>
+					<tr>
+						<td>Website:</td>
+						<td><a id="info-website" href="" target="_blank"></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-		<button>Start Round!</button>
+		<div class="tee_div" id="tee_div">
+			<h6>Tee-box:</h6>
+			<p><span class="smol">(select a course to continue)</span></p>
+			<input type="radio" name="tee" disabled required>
+		</div>
+
+		<div class="grid">
+			<h6 class="name_input">Players' Name:</h6>
+			<h6 class="hcp_input">HCP:<span class="smol"> (Handicap)</span></h6>
+			<input name="p1" placeholder="player 1" class="name_input" required>
+			<input type="tel" name="hp1" class="hcp_input" min="0" max="90" step="1" placeholder="0">
+			<input name="p2" placeholder="player 2" class="name_input">
+			<input type="tel" name="hp2" class="hcp_input" min="0" max="90" step="1" placeholder="0">
+			<input name="p3" placeholder="player 3" class="name_input">
+			<input type="tel" name="hp3" class="hcp_input" min="0" max="90" step="1" placeholder="0">
+			<input name="p4" placeholder="player 4" class="name_input">
+			<input type="tel" name="hp4" class="hcp_input" min="0" max="90" step="1" placeholder="0">
+		</div>
+		
+		<div class="centering-div">
+			<input type="submit" value="Start Round!">			
+		</div>
 		<a target="_blank" href="./game.html">test game.html</a>
 		
-	</div>
+	</form>
 </body>
 </html>
+
+

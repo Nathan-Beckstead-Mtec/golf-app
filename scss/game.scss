@@ -161,13 +161,15 @@ body{
     box-shadow: 0 0 1rem 0.5rem $pallate_font;
     flex-shrink: 1;
     
+    overflow-x: scroll;
     border: 2px solid black;
     box-shadow: 0 0 1rem 0.5rem $pallate_font;
+    padding-bottom: 10px;
+    background-color: $pallate_white;
 }
 
 #card{
-    overflow-x: scroll;
-    padding-bottom: 10px;
+    // overflow-x: scroll;
     position: relative;
     
     max-width: 100%;
@@ -175,7 +177,6 @@ body{
     
     box-sizing: border-box;
     
-    background-color: $pallate_font;
 }
 
 
