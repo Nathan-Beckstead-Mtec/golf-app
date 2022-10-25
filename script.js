@@ -1,7 +1,9 @@
 
 var courses = null;
-getCourses();
+
 var cache = {};
+load_cache();
+getCourses();
 var courseId = null;
 var tees;
 
@@ -203,3 +205,13 @@ function getCourseFromAPI(course){
       console.error(`Could not get Couses: ${error}`);
     });
 };
+
+
+
+
+function save_cache(){
+    sessionStorage.setItem("cache", JSON.stringify(cache));
+}
+function load_cache(){
+    cache = sessionStorage.getItem("cache") ?? {};
+}
