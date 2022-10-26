@@ -169,7 +169,7 @@ class scorecard{
 		});
         table.appendChild(tbody);
 
-        if (true){ //do col group 
+        if (false){ //do col group 
             let colgroup = document.createElement("colgroup");
             let element;
 

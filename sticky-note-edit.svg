@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 24 24" width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <clipPath>
+      <path id="stickyClip" d="M 1 1 L 23 1 L 23 3.75 L 23 13.375 C 23 13.375 23.105 20.14 22.33 21.266 C 21.205 23.041 7.961 23 7.961 23 L 1 23 L 1 3.75 L 1 1 Z" clipPathUnits="objectBoundingBox" bx:origin="0.533927 0.5">
+      </path>
+    </clipPath>
+  <defs>
+  <path d="M 1 1 L 23 1 L 23 3.75 L 23 13.375 C 23 13.375 23.105 20.14 22.33 21.266 C 21.205 23.041 7.961 23 7.961 23 L 1 23 L 1 3.75 L 1 1 Z" style="stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; stroke: rgb(0, 0, 0); stroke-width: 0px; pointer-events: none; fill: rgb(231, 190, 100);" bx:origin="0.533927 0.5">
+  </path>
+  <path d="M 1 1 L 23 1 L 23 3.75 L 23 13.375 C 23 13.375 23.184 25.207 21.273 20.18 C 21.273 20.18 19.997 20.846 19.018 21.284 C 15.128 23.024 7.961 23 7.961 23 L 1 23 L 1 3.75 L 1 1 Z" style="stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; fill: rgb(246, 219, 132); stroke-width: 3px; pointer-events: none;" bx:origin="0.533927 0.5">
+  </path>
+</svg>

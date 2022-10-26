@@ -1,5 +1,52 @@
+@media (min-width: 400px) {
+  :root {
+    font-size: 24px;
+  }
+  .iphone-margins {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+  body {
+    height: -webkit-fill-avalible;
+    margin: 0;
+    border: 1px solid transparent;
+  }
+}
+.sticky-note {
+  border: 2px dashed red;
+  flex-basis: 0;
+  position: absolute;
+  top: 5px;
+  right: -5px;
+  font-size: 0.75em;
+  z-index: 2;
+  height: 6em;
+  width: 6em;
+}
+.sticky-note svg {
+  height: 100%;
+  width: 100%;
+}
+.sticky-note .sticky-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Kalam", cursive;
+}
+
+.centered-div {
+  position: relative;
+}
+
 table {
-  background-color: #433455;
+  background-color: #c5ccb8;
   border-collapse: collapse;
 }
 table thead tr:nth-child(1) th {
@@ -45,6 +92,7 @@ table thead tr th, table tbody tr td {
 }
 table thead tr th:nth-child(1), table tbody tr td:nth-child(1) {
   position: sticky;
+  top: -100vh;
   left: 0;
   min-width: 5rem;
   max-width: 5rem;
@@ -61,25 +109,30 @@ table thead tr th:nth-child(1), table tbody tr td:nth-child(1) {
 table thead tr th:nth-child(11), table tbody tr td:nth-child(11) {
   z-index: 1;
   position: sticky;
+  top: -100vh;
   left: 5rem;
   right: calc(2rem + 0px + 0px);
 }
 table thead tr th:nth-child(21), table tbody tr td:nth-child(21) {
   z-index: 0;
   position: sticky;
+  top: -100vh;
   left: 7rem;
   right: calc(2rem + 0px + 0px);
 }
 table thead tr th:nth-last-child(3), table tbody tr td:nth-last-child(3) {
   position: sticky;
+  top: -100vh;
   right: 0px;
 }
 table thead tr th:nth-last-child(2), table tbody tr td:nth-last-child(2) {
   position: sticky;
+  top: -100vh;
   right: 0px;
 }
 table thead tr th:nth-last-child(1), table tbody tr td:nth-last-child(1) {
   position: sticky;
+  top: -100vh;
   right: 0px;
 }
 
@@ -93,7 +146,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  overflow-y: hidden;
+  height: -webkit-fill-avalible;
+  background-attachment: fixed;
+  margin: 0;
 }
 
 .centering-div {
@@ -105,11 +160,9 @@ body {
 
 .content {
   border: 2px solid black;
-  box-shadow: 0 0 1rem 0.5rem #433455;
+  box-shadow: 0 0 1rem 0.5rem #c5ccb8;
   flex-shrink: 1;
   overflow-x: scroll;
-  border: 2px solid black;
-  box-shadow: 0 0 1rem 0.5rem #433455;
   padding-bottom: 10px;
   background-color: #c5ccb8;
 }
@@ -120,11 +173,6 @@ body {
   box-sizing: border-box;
 }
 
-@media (min-width: 400px) {
-  :root {
-    font-size: 24px;
-  }
-}
 select.course {
   width: 100vw;
   height: 5vh;
