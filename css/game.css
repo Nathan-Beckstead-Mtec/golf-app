@@ -14,37 +14,6 @@
     border: 1px solid transparent;
   }
 }
-.sticky-note {
-  border: 2px dashed red;
-  flex-basis: 0;
-  position: absolute;
-  top: 5px;
-  right: -5px;
-  font-size: 0.75em;
-  z-index: 2;
-  height: 6em;
-  width: 6em;
-}
-.sticky-note svg {
-  height: 100%;
-  width: 100%;
-}
-.sticky-note .sticky-content {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Kalam", cursive;
-}
-
-.centered-div {
-  position: relative;
-}
-
 table {
   background-color: #c5ccb8;
   border-collapse: collapse;
