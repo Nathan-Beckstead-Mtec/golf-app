@@ -1,19 +1,28 @@
-@media (min-width: 400px) {
+@media (max-device-width: 400px) {
   :root {
     font-size: 24px;
   }
   .iphone-margins {
     padding-top: env(safe-area-inset-top, 0px);
-    padding-right: env(safe-area-inset-right, 0px);
+    padding-right: env(safe-area-inset-right, 1em);
     padding-bottom: env(safe-area-inset-bottom, 0px);
-    padding-left: env(safe-area-inset-left, 0px);
+    padding-left: env(safe-area-inset-left, 1em);
+  }
+  * {
+    background-color: red;
   }
   body {
     height: -webkit-fill-avalible;
     margin: 0;
     border: 1px solid transparent;
+    background-color: #659cd2;
   }
 }
+.iphone-margins {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 table {
   background-color: #c5ccb8;
   border-collapse: collapse;
@@ -111,25 +120,26 @@ th, td {
 }
 
 body {
-  background-image: url("../images/pexels-edward-goeters-5802951.jpg");
+  background-image: url("../images/pexels-edward-goeters-5802951-edit.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   height: -webkit-fill-avalible;
   background-attachment: fixed;
   margin: 0;
+  padding-top: 1em;
+  box-sizing: border-box;
 }
 
 .centering-div {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1rem;
 }
 
 .content {
-  border: 2px solid black;
-  box-shadow: 0 0 1rem 0.5rem #c5ccb8;
+  border: 2px solid #433455;
+  box-shadow: 0 1em 1em 0rem hsla(267deg, 14%, 27%, 0.9);
   flex-shrink: 1;
   overflow-x: scroll;
   padding-bottom: 10px;

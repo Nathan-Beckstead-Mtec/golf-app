@@ -12,20 +12,12 @@
 }
 body {
   background-color: #659cd2;
-  background-image: url("../images/pexels-edward-goeters-5802951.jpg");
+  background-image: url("../images/pexels-edward-goeters-5802951-edit.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   height: -webkit-fill-avalible;
   background-attachment: fixed;
-}
-
-.iphone-margins {
-  padding-left: 300px;
-  padding-top: max(0px, env(safe-area-inset-top));
-  padding-right: max(0px, env(safe-area-inset-right));
-  padding-bottom: max(0px, env(safe-area-inset-bottom));
-  padding-left: max(50px, env(safe-area-inset-left));
 }
 
 .centering-div {
