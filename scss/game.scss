@@ -211,6 +211,10 @@ body{
     overflow-x: scroll;
     padding-bottom: 10px;
     background-color: $pallate_white;
+
+    scroll-snap-type: x proximity;
+
+
 }
 
 #card{

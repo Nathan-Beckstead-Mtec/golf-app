@@ -41,6 +41,17 @@ body{
     height: 100vh;
     height: -webkit-fill-avalible;
     background-attachment:fixed;
+
+    margin: 0;
+    padding-top: $card-gap;
+    padding-left: $card-gap;
+    padding-right: $card-gap;
+    box-sizing: border-box;
+}
+
+form > div{
+    margin-bottom: $card-gap;
+    border-radius: 3px;
 }
 
 .centering-div{
@@ -49,7 +60,6 @@ body{
     flex-wrap: nowrap;
     padding:1em;
     background-color: $pallate_white;
-    margin-bottom: $card-gap;
     // margin-top: 1rem;
 }
 
@@ -74,7 +84,6 @@ input[type="submit"]{
 .table-div{
     padding: 1em;
     background-color: $pallate_white;
-    margin-bottom: $card-gap;
     
     table{
         background-color: $pallate_white;
@@ -109,7 +118,6 @@ input[type="submit"]{
     gap:0.5em;
 
     background-color: $pallate_white;
-    margin-bottom: $card-gap;
     padding:1em;
 
 
@@ -169,7 +177,6 @@ input[type="submit"]{
 .grid{
     display: grid;
     grid-template-columns: 1fr 4.5em;
-    margin-bottom: $card-gap;
     // grid-template-rows: 1em auto auto auto auto;
     gap: 4px 0.5em;
 

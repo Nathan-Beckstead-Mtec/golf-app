@@ -18,6 +18,16 @@ body {
   height: 100vh;
   height: -webkit-fill-avalible;
   background-attachment: fixed;
+  margin: 0;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+form > div {
+  margin-bottom: 20px;
+  border-radius: 3px;
 }
 
 .centering-div {
@@ -26,7 +36,6 @@ body {
   flex-wrap: nowrap;
   padding: 1em;
   background-color: #c5ccb8;
-  margin-bottom: 20px;
 }
 
 select {
@@ -47,7 +56,6 @@ input[type=submit] {
 .table-div {
   padding: 1em;
   background-color: #c5ccb8;
-  margin-bottom: 20px;
 }
 .table-div table {
   background-color: #c5ccb8;
@@ -71,7 +79,6 @@ input[type=submit] {
   align-items: flex-start;
   gap: 0.5em;
   background-color: #c5ccb8;
-  margin-bottom: 20px;
   padding: 1em;
 }
 .tee_div h6 {
@@ -123,7 +130,6 @@ input[type=submit] {
 .grid {
   display: grid;
   grid-template-columns: 1fr 4.5em;
-  margin-bottom: 20px;
   gap: 4px 0.5em;
   background-color: #c5ccb8;
   padding: 1em;

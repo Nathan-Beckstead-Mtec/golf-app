@@ -144,6 +144,7 @@ body {
   overflow-x: scroll;
   padding-bottom: 10px;
   background-color: #c5ccb8;
+  scroll-snap-type: x proximity;
 }
 
 #card {
